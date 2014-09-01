@@ -81,7 +81,7 @@ function ktopic_field_default_field_instances() {
     'settings' => array(
       'description_field' => 1,
       'file_directory' => '',
-      'file_extensions' => 'txt',
+      'file_extensions' => 'doc docx pdf ppt pptx xls xlsx txt bmp gif jpeg jpg png tiff tif 7z gz rar tar tgz zip',
       'filefield_paths' => array(
         'active_updating' => 0,
         'file_name' => array(
