@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Implements hook_field_schema().
+ */
+function ktopic_field_schema($field) {
+  return array(
+    'columns' => array(
+      'value' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+      ),
+    ),
+    'indexes' => array(
+      'value' => array('value'),
+    ),
+  );
+}
