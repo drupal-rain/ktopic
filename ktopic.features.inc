@@ -8,9 +8,42 @@
  * Implements hook_ctools_plugin_api().
  */
 function ktopic_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "field_group" && $api == "field_group") {
+    return array("version" => "1");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
+}
+
+/**
+ * Implements hook_eck_entity_type_info().
+ */
+function ktopic_eck_entity_type_info() {
+  $items = array(
+    'ktopic' => array(
+      'name' => 'ktopic',
+      'label' => 'Topic',
+      'properties' => array(
+        'uid' => array(
+          'label' => 'Author',
+          'type' => 'integer',
+          'behavior' => 'author',
+        ),
+        'created' => array(
+          'label' => 'Created',
+          'type' => 'integer',
+          'behavior' => 'created',
+        ),
+        'changed' => array(
+          'label' => 'Changed',
+          'type' => 'integer',
+          'behavior' => 'changed',
+        ),
+      ),
+    ),
+  );
+  return $items;
 }
 
 /**
