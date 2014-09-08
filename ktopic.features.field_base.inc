@@ -17,14 +17,7 @@ function ktopic_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ktopic_data',
-    'foreign keys' => array(
-      'eck_ktopic' => array(
-        'columns' => array(
-          'target_id' => 'id',
-        ),
-        'table' => 'eck_ktopic',
-      ),
-    ),
+    'foreign keys' => array(),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -45,7 +38,7 @@ function ktopic_field_default_field_bases() {
         ),
         'target_bundles' => array(),
       ),
-      'target_type' => 'ktopic',
+      'target_type' => 'kdata',
     ),
     'translatable' => 0,
     'type' => 'entityreference',
@@ -114,7 +107,7 @@ function ktopic_field_default_field_bases() {
           'type' => 'none',
         ),
         'target_bundles' => array(
-          'ktopic_type' => 'ktopic_type',
+          'ktype' => 'ktype',
         ),
       ),
       'target_type' => 'taxonomy_term',

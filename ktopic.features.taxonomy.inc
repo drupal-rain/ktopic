@@ -9,9 +9,9 @@
  */
 function ktopic_taxonomy_default_vocabularies() {
   return array(
-    'ktopic_type' => array(
-      'name' => 'Topic',
-      'machine_name' => 'ktopic_type',
+    'ktype' => array(
+      'name' => 'Topic Type',
+      'machine_name' => 'ktype',
       'description' => 'Topic types category.',
       'hierarchy' => 0,
       'module' => 'taxonomy',

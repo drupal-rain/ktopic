@@ -21,9 +21,9 @@ function ktopic_ctools_plugin_api($module = NULL, $api = NULL) {
  */
 function ktopic_eck_entity_type_info() {
   $items = array(
-    'ktopic' => array(
-      'name' => 'ktopic',
-      'label' => 'Topic',
+    'kdata' => array(
+      'name' => 'kdata',
+      'label' => 'Data',
       'properties' => array(
         'uid' => array(
           'label' => 'Author',
