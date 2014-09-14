@@ -3,6 +3,9 @@
 define('KTOPIC_FIELD_NAME', 'field_ktopic_name');
 define('KTOPIC_FIELD_TYPE', 'field_ktopic_type');
 
+/**
+ * @implements hook_field_info().
+ */
 function ktopic_field_info() {
   return array(
     'ktopic_name' => array(
@@ -15,6 +18,9 @@ function ktopic_field_info() {
   );
 }
 
+/**
+ * @implements hook_field_settings_form().
+ */
 function ktopic_field_settings_form($field, $instance, $has_data) {
   $settings = $field['settings'];
 
@@ -30,6 +36,9 @@ function ktopic_field_settings_form($field, $instance, $has_data) {
   return $form;
 }
 
+/**
+ * @implements hook_field_is_empty().
+ */
 function ktopic_field_is_empty($item, $field) {
   if (empty($item['name']) && (string) $item['name'] !== '0') {
     return TRUE;
@@ -37,6 +46,9 @@ function ktopic_field_is_empty($item, $field) {
   return FALSE;
 }
 
+/**
+ * @implements hook_field_widget_info_alter().
+ */
 function ktopic_field_widget_info_alter(&$info) {
   $widgets = array(
     'options_select' => array('ktopic_name'),
@@ -48,6 +60,9 @@ function ktopic_field_widget_info_alter(&$info) {
   }
 }
 
+/**
+ * @implements hook_field_formatter_info().
+ */
 function ktopic_field_formatter_info() {
   return array(
     'ktopic_default' => array(
@@ -57,6 +72,9 @@ function ktopic_field_formatter_info() {
   );
 }
 
+/**
+ * @implements hook_field_formatter_view().
+ */
 function ktopic_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
   $element = array();
 
@@ -65,6 +83,8 @@ function ktopic_field_formatter_view($entity_type, $entity, $field, $instance, $
 
 /**
  * @implements hook_options_list().
+ *
+ * Being used to provide a list of options for field_type<list>.
  */
 function ktopic_options_list($field, $instance, $entity_type, $entity) {
   $allowed_types = $settings = $field['settings']['allowed_types'];
@@ -75,7 +95,7 @@ function ktopic_options_list($field, $instance, $entity_type, $entity) {
   $conds = array();
   if (!empty($allowed_types)) {
     $conds[] = array(
-      'column' => 'value',
+      'column' => 'target_id',
       'value' => array_keys($allowed_types),
       'operator' => 'IN',
     );

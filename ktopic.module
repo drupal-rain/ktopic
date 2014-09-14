@@ -10,15 +10,16 @@ include_once 'ktopic.field.inc';
 
 /**
  * Return list of ktopic type options.
- *
- * @todo This use field ui to set field_ktopic_type 'allowed_values', consider
- * improving this by create a settings form to do it and this function use
- * variable_get_value('ktopic_type_options') to return the options list.
  */
 function ktopic_type_options() {
-  $field_ktopic_type_info = field_info_field('field_ktopic_type');
+  $vocab = taxonomy_vocabulary_machine_name_load('ktype');
+  $terms = taxonomy_get_tree($vocab->vid);
+  $options = array();
+  foreach ($terms as $term) {
+    $options[$term->tid] = $term->name;
+  }
 
-  return $field_ktopic_type_info['settings']['allowed_values'];
+  return $options;
 }
 
 /**
