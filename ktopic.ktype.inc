@@ -9,6 +9,36 @@ function ktopic_ktype_vid() {
   return $vocab->vid;
 }
 
+function ktopic_ktype_term($term_name) {
+  $vid = ktopic_ktype_vid();
+  $query = new EntityFieldQuery;
+  $query->entityCondition('entity_type', 'taxonomy_term')
+    ->propertyCondition('name', $term_name)
+    ->propertyCondition('vid', $vid);
+  $result = $query->execute();
+  if ($result) {
+    $term_raw = reset($result['taxonomy_term']);
+    return taxonomy_term_load($term_raw->tid);
+  }
+
+  return NULL;
+}
+
+function ktopic_ktype_names_to_ids($names) {
+  $ids = array();
+
+  foreach ($names as $name) {
+    if ($name) {
+      $term = ktopic_ktype_term($name);
+      if ($term) {
+        $ids[] = $term->tid;
+      }
+    }
+  }
+
+  return $ids;
+}
+
 /**
  * @implements hook_
  */

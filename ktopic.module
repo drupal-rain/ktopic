@@ -13,7 +13,8 @@ include_once 'ktopic.ktype.inc';
  * Implements hook_ctools_plugin_directory().
  */
 function ktopic_ctools_plugin_directory($module, $plugin) {
-  if ($module == 'entityreference') {
+  $modules = array('ctools', 'entityreference');
+  if (in_array($module, $modules)) {
     return $module . '/' . $plugin;
   }
 }

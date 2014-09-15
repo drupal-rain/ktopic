@@ -29,7 +29,7 @@ class EntityReference_SelectionHandler_Ktopic implements EntityReference_Selecti
     $terms = taxonomy_get_tree($vocab->vid);
     $options = array();
     foreach ($terms as $term) {
-      $options[$term->tid] = str_repeat('-', $term->depth) . check_plain($term->name);
+      $options[$term->name] = str_repeat('-', $term->depth) . check_plain($term->name);
     }
 
     $form['allowed_types'] = array(
@@ -44,27 +44,37 @@ class EntityReference_SelectionHandler_Ktopic implements EntityReference_Selecti
     return $form;
   }
 
-  /**
-   * Implements EntityReferenceHandler::getReferencableEntities().
-   *
-   * @todo Simplify together with countReferencableEntities().
-   */
-  public function getReferencableEntities($match = NULL, $match_operator = 'CONTAINS', $limit = 0) {
+  protected function getKtopicNodes($match = NULL, $match_operator = 'CONTAINS', $limit = 0) {
+    // Need to filter out the disabled types.
     $allowed_types = $this->field['settings']['handler_settings']['allowed_types'];
+    $allowed_types = array_filter($allowed_types);
 
     // @todo Support multi-lingual.
     $lang = LANGUAGE_NONE;
 
     $conds = array();
     if (!empty($allowed_types)) {
+      $term_ids = ktopic_ktype_names_to_ids($allowed_types);
       $conds[] = array(
         'column' => 'target_id',
-        'value' => array_keys($allowed_types),
+        'value' => $term_ids,
         'operator' => 'IN',
       );
     }
     $node_ids = KtoolsEntityField::queryEntities('field_ktopic_type', $conds, 'node');
     $nodes = node_load_multiple($node_ids);
+
+    return $nodes;
+  }
+
+  /**
+   * Implements EntityReferenceHandler::getReferencableEntities().
+   *
+   * @todo Simplify together with countReferencableEntities().
+   */
+  public function getReferencableEntities($match = NULL, $match_operator = 'CONTAINS', $limit = 0) {
+    $nodes = $this->getKtopicNodes($match, $match_operator, $limit);
+
     $options_list = array();
     foreach ($nodes as $node) {
       $options_list['ktopic'][$node->nid] = $node->title;
@@ -77,23 +87,7 @@ class EntityReference_SelectionHandler_Ktopic implements EntityReference_Selecti
    * Implements EntityReferenceHandler::countReferencableEntities().
    */
   public function countReferencableEntities($match = NULL, $match_operator = 'CONTAINS') {
-
-    $allowed_types = $this->field['settings']['handler_settings']['allowed_types'];
-
-    // @todo Support multi-lingual.
-    $lang = LANGUAGE_NONE;
-
-    $conds = array();
-    if (!empty($allowed_types)) {
-      $conds[] = array(
-        'column' => 'target_id',
-        'value' => array_keys($allowed_types),
-        'operator' => 'IN',
-      );
-    }
-    $node_ids = KtoolsEntityField::queryEntities('field_ktopic_type', $conds, 'node');
-    $nodes = node_load_multiple($node_ids);
-
+    $nodes = $this->getKtopicNodes($match, $match_operator);
 
     return count($nodes);
   }
