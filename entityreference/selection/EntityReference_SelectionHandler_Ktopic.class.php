@@ -25,13 +25,20 @@ class EntityReference_SelectionHandler_Ktopic implements EntityReference_Selecti
   public static function settingsForm($field, $instance) {
     $allowed_types = isset($field['settings']['handler_settings']['allowed_types']) ? $field['settings']['handler_settings']['allowed_types'] : array();
 
+    $vocab = taxonomy_vocabulary_machine_name_load('ktype');
+    $terms = taxonomy_get_tree($vocab->vid);
+    $options = array();
+    foreach ($terms as $term) {
+      $options[$term->tid] = str_repeat('-', $term->depth) . check_plain($term->name);
+    }
+
     $form['allowed_types'] = array(
-      '#type' => 'select',
+      '#type' => 'checkboxes',
       '#multiple' => TRUE,
-      '#options' => ktopic_type_options(),
+      '#options' => $options,
       '#default_value' => $allowed_types,
       '#title' => t('Allowed Topic Types'),
-      '#size' => count(ktopic_type_options()),
+      //'#size' => count($options),
     );
 
     return $form;
