@@ -9,6 +9,15 @@ include_once 'ktopic.features.inc';
 include_once 'ktopic.field.inc';
 
 /**
+ * Implements hook_ctools_plugin_directory().
+ */
+function ktopic_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'entityreference') {
+    return $module . '/' . $plugin;
+  }
+}
+
+/**
  * Return list of ktopic type options.
  */
 function ktopic_type_options() {

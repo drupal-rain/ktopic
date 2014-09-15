@@ -2,8 +2,11 @@ name = Ktopic
 description = Topic feature.
 core = 7.x
 package = Keatures
-version = 7.x-0.3
+version = 7.x-0.4
 project = ktopic
+
+files[] = entityreference/selection/ktopic.inc
+
 dependencies[] = ctools
 dependencies[] = eck
 dependencies[] = eck

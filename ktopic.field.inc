@@ -87,7 +87,7 @@ function ktopic_field_formatter_view($entity_type, $entity, $field, $instance, $
  * Being used to provide a list of options for field_type<list>.
  */
 function ktopic_options_list($field, $instance, $entity_type, $entity) {
-  $allowed_types = $settings = $field['settings']['allowed_types'];
+  $allowed_types = $field['settings']['allowed_types'];
 
   // @todo Support multi-lingual.
   $lang = LANGUAGE_NONE;
