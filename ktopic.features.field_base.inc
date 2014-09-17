@@ -44,7 +44,14 @@ function ktopic_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ktopic_data',
-    'foreign keys' => array(),
+    'foreign keys' => array(
+      'eck_kdata' => array(
+        'columns' => array(
+          'target_id' => 'id',
+        ),
+        'table' => 'eck_kdata',
+      ),
+    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -171,6 +178,9 @@ function ktopic_field_default_field_bases() {
         'behaviors' => array(
           'og_behavior' => array(
             'status' => TRUE,
+          ),
+          'treefield_sql' => array(
+            'status' => 0,
           ),
           'views-select-list' => array(
             'status' => 0,

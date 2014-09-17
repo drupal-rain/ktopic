@@ -46,3 +46,9 @@ function ktopic_load($name) {
 
   return node_load(reset($ids));
 }
+
+function ktopic_ktopic_name($ktopic) {
+  $lang = $ktopic->language;
+
+  return $ktopic->field_ktopic_name[$lang][0]['machine'];
+}

@@ -27,6 +27,7 @@ function ktopic_ktype_term($term_name) {
 function ktopic_ktype_names_to_ids($names) {
   $ids = array();
 
+  // @todo Optimize by using load multiple by names using one query.
   foreach ($names as $name) {
     if ($name) {
       $term = ktopic_ktype_term($name);
