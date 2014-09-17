@@ -38,6 +38,7 @@ features[features_api][] = api:2
 features[field_base][] = field_kdata_body
 features[field_base][] = field_ktopic_data
 features[field_base][] = field_ktopic_name
+features[field_base][] = field_ktopic_tags
 features[field_base][] = field_ktopic_type
 features[field_base][] = og_ktopic_ref
 features[field_group][] = group_logo|node|ktopic|form
