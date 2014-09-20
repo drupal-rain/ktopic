@@ -20,8 +20,15 @@ function ktopic_views_data_alter(&$data) {
       'field' => 'type',
       'value' => $bundle,
     );
+    // @deprecated Seems no need.
     // Add entity_kdata to this table, this make fields data available.
-    $data_tmp[$bundle] += $data['entity_kdata'];
+    //$data_tmp[$bundle] += $data['entity_kdata'];
+    /*
+    $data_tmp[$bundle]['table'] = array(
+      'group' => t('Data'),
+      'entity type' => 'kdata',
+    );
+    */
   }
 
   //$data['entity_node']['field_ktopic_data']['relationship']['handler'] = 'entity_views_handler_relationship_by_bundles';

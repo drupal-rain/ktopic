@@ -89,9 +89,9 @@ function ktopic_get_name($ktopic) {
 
 // Entity id indexed kdata entities.
 function ktopic_get_kdatas_flat($ktopic) {
+  $lang = entity_language('node', $ktopic);
   $kdatas = array();
-  if ($ktopic->field_ktopic_data) {
-    $lang = entity_language('node', $ktopic);
+  if ($ktopic->field_ktopic_data && $ktopic->field_ktopic_data[$lang]) {
     $kdatas_id = array();
     foreach ($ktopic->field_ktopic_data[$lang] as $value) {
       $kdata_id = $value['target_id'];
@@ -107,8 +107,7 @@ function ktopic_get_kdatas_flat($ktopic) {
 function ktopic_get_kdatas($ktopic, $kdata_type = NULL) {
   $lang = entity_language('node', $ktopic);
   $kdatas = array();
-  if ($ktopic->field_ktopic_data) {
-    $lang = entity_language('node', $ktopic);
+  if ($ktopic->field_ktopic_data && $ktopic->field_ktopic_data[$lang]) {
     foreach ($ktopic->field_ktopic_data[$lang] as $value) {
       $kdata_id = $value['target_id'];
       $kdata = entity_load_single('kdata', $kdata_id);
@@ -127,7 +126,7 @@ function ktopic_get_kdatas($ktopic, $kdata_type = NULL) {
 function ktopic_get_kdata($ktopic, $kdata_type) {
   $lang = entity_language('node', $ktopic);
   $kdatas = array();
-  if ($ktopic->field_ktopic_data) {
+  if ($ktopic->field_ktopic_data && $ktopic->field_ktopic_data[$lang]) {
     foreach ($ktopic->field_ktopic_data[$lang] as $delta => $value) {
       $kdatas[$delta] = entity_load_single('kdata', $value['target_id']);
     }
