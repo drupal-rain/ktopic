@@ -50,6 +50,11 @@ function ktopic_eck_entity_type_info() {
           'type' => 'integer',
           'behavior' => 'changed',
         ),
+        'nid' => array(
+          'label' => 'nid',
+          'type' => 'positive_integer',
+          'behavior' => 'entityreference',
+        ),
       ),
     ),
   );

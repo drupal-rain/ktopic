@@ -13,9 +13,9 @@ function ktopic_views_default_views() {
   $view = new view();
   $view->name = 'ktopic_filter_list';
   $view->description = '';
-  $view->tag = 'default';
+  $view->tag = 'Ktopic';
   $view->base_table = 'node';
-  $view->human_name = 'Ktopic Filter List';
+  $view->human_name = 'Topic Filter List';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -84,9 +84,9 @@ function ktopic_views_default_views() {
   $view = new view();
   $view->name = 'ktopic_index';
   $view->description = '';
-  $view->tag = 'default';
+  $view->tag = 'Ktopic';
   $view->base_table = 'node';
-  $view->human_name = 'Ktopic Index';
+  $view->human_name = 'Topic Index';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
