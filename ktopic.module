@@ -44,6 +44,8 @@ function ktopic_kdata_save($ktopic) {
     $kdatas = ktopic_get_kdatas_flat($ktopic);
     foreach ($kdatas as $kdata) {
       $kdata->nid = $ktopic->nid;
+      $kdata->created = $ktopic->created;
+      $kdata->changed = $ktopic->changed;
       $kdata->save();
     }
   }

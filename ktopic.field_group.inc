@@ -25,6 +25,8 @@ function ktopic_field_group_info() {
     'children' => array(
       0 => 'field_logo_square',
       1 => 'field_logo_rectangle',
+      2 => 'field_logo_portrait',
+      3 => 'field_logo_landscape',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

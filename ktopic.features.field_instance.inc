@@ -418,8 +418,8 @@ function ktopic_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ktopic-field_logo_rectangle'
-  $field_instances['node-ktopic-field_logo_rectangle'] = array(
+  // Exported field_instance: 'node-ktopic-field_logo_landscape'
+  $field_instances['node-ktopic-field_logo_landscape'] = array(
     'bundle' => 'ktopic',
     'deleted' => 0,
     'description' => '',
@@ -432,7 +432,7 @@ function ktopic_field_default_field_instances() {
           'image_style' => '',
         ),
         'type' => 'image',
-        'weight' => 4,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -442,8 +442,8 @@ function ktopic_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_logo_rectangle',
-    'label' => 'Logo (Rectangle)',
+    'field_name' => 'field_logo_landscape',
+    'label' => 'Logo (Landscape)',
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
@@ -451,7 +451,85 @@ function ktopic_field_default_field_instances() {
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'filefield_paths' => array(
-        'active_updating' => 0,
+        'active_updating' => 1,
+        'file_name' => array(
+          'options' => array(
+            'pathauto' => 0,
+            'transliterate' => 0,
+          ),
+          'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
+        ),
+        'file_path' => array(
+          'options' => array(
+            'pathauto' => 0,
+            'transliterate' => 0,
+          ),
+          'value' => 'topic/[node:nid]/logo',
+        ),
+        'retroactive_update' => 0,
+      ),
+      'filefield_paths_enabled' => 1,
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          0 => 'public',
+          1 => 'private',
+        ),
+        'allowed_types' => array(
+          0 => 'image',
+        ),
+        'browser_plugins' => array(),
+        'multiple_value_widget' => 'table',
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'media_generic',
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'node-ktopic-field_logo_portrait'
+  $field_instances['node-ktopic-field_logo_portrait'] = array(
+    'bundle' => 'ktopic',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_logo_portrait',
+    'label' => 'Logo (Portrait)',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'filefield_paths' => array(
+        'active_updating' => 1,
         'file_name' => array(
           'options' => array(
             'pathauto' => 0,
@@ -496,7 +574,7 @@ function ktopic_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -533,7 +611,7 @@ function ktopic_field_default_field_instances() {
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'filefield_paths' => array(
-        'active_updating' => 0,
+        'active_updating' => 1,
         'file_name' => array(
           'options' => array(
             'pathauto' => 0,
@@ -650,7 +728,8 @@ function ktopic_field_default_field_instances() {
   t('File attachment to the subject.');
   t('Group');
   t('Image');
-  t('Logo (Rectangle)');
+  t('Logo (Landscape)');
+  t('Logo (Portrait)');
   t('Logo (Square)');
   t('Machine Name');
   t('Topic');

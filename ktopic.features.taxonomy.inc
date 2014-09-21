@@ -13,7 +13,7 @@ function ktopic_taxonomy_default_vocabularies() {
       'name' => 'Topic Type',
       'machine_name' => 'ktype',
       'description' => 'Topic types category.',
-      'hierarchy' => 0,
+      'hierarchy' => 1,
       'module' => 'taxonomy',
       'weight' => 0,
     ),
