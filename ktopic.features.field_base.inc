@@ -179,8 +179,11 @@ function ktopic_field_default_field_bases() {
       'handler' => 'base',
       'handler_settings' => array(
         'behaviors' => array(
-          'views-select-list' => array(
+          'treefield_sql' => array(
             'status' => 0,
+          ),
+          'views-select-list' => array(
+            'status' => 1,
           ),
         ),
         'sort' => array(

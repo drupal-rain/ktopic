@@ -636,7 +636,7 @@ function ktopic_field_default_field_instances() {
         'og_hide' => TRUE,
       ),
       'type' => 'options_onoff',
-      'weight' => 6,
+      'weight' => 4,
     ),
   );
 
