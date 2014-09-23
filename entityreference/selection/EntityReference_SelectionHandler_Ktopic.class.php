@@ -29,7 +29,8 @@ class EntityReference_SelectionHandler_Ktopic implements EntityReference_Selecti
     $terms = taxonomy_get_tree($vocab->vid);
     $options = array();
     foreach ($terms as $term) {
-      $options[$term->name] = str_repeat('-', $term->depth) . check_plain($term->name);
+      //$options[$term->name] = str_repeat('-', $term->depth) . check_plain($term->name);
+      $options[$term->tid] = str_repeat('-', $term->depth) . check_plain($term->name);
     }
 
     $form['allowed_types'] = array(
@@ -47,14 +48,14 @@ class EntityReference_SelectionHandler_Ktopic implements EntityReference_Selecti
   protected function getKtopicNodes($match = NULL, $match_operator = 'CONTAINS', $limit = 0) {
     // Need to filter out the disabled types.
     $allowed_types = $this->field['settings']['handler_settings']['allowed_types'];
-    $allowed_types = array_filter($allowed_types);
+    //$allowed_types = array_filter($allowed_types);
 
     // @todo Support multi-lingual.
     $lang = LANGUAGE_NONE;
 
     $conds = array();
     if (!empty($allowed_types)) {
-      $term_ids = ktopic_ktype_names_to_ids($allowed_types);
+      $term_ids = $allowed_types; //ktopic_ktype_names_to_ids($allowed_types);
       $conds[] = array(
         'column' => 'target_id',
         'value' => $term_ids,
