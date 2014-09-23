@@ -14,10 +14,10 @@ include_once 'ktopic.info.callback.inc';
 /**
  * Implements hook_ctools_plugin_directory().
  */
-function ktopic_ctools_plugin_directory($module, $plugin) {
-  $modules = array('ctools', 'entityreference');
-  if (in_array($module, $modules)) {
-    return $module . '/' . $plugin;
+function ktopic_ctools_plugin_directory($owner, $plugin_type) {
+  $owners = array('ctools', 'entityreference');
+  if (in_array($owner, $owners)) {
+    return $owner . '/' . $plugin_type;
   }
 }
 
