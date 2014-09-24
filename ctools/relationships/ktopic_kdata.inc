@@ -8,7 +8,7 @@ $plugin = array(
   'context' => 'ktopic_ktopic_kdata_context',
   'edit form' => 'ktopic_ktopic_kdata_settings_form',
   'defaults' => array(
-    'kdata_type' => '',
+    'bundle' => '',
   ),
 );
 
@@ -22,7 +22,7 @@ function ktopic_ktopic_kdata_context($context, $conf) {
   }
 
   $ktopic_wrapper = entity_metadata_wrapper('node', $ktopic);
-  $kdata = $ktopic_wrapper->{$conf['kdata_type']}->value();
+  $kdata = $ktopic_wrapper->{$conf['bundle']}->value();
   if (!empty($kdata)) {
     return ctools_context_create('entity:kdata', $kdata);
   }
@@ -37,12 +37,12 @@ function ktopic_ktopic_kdata_settings_form($form, &$form_state) {
   $conf = $form_state['conf'];
 
   $kdata_types = eck_extras_get_entity_bundles('kdata');
-  $form['kdata_type'] = array(
+  $form['bundle'] = array(
     '#type' => 'select',
     '#title' => t('Kdata Type'),
     '#description' => t('Select the Kdata type.'),
     '#options' => array_combine($kdata_types, $kdata_types),
-    '#default_value' => isset($conf['kdata_type']) ? $conf['kdata_type'] : '',
+    '#default_value' => isset($conf['bundle']) ? $conf['bundle'] : '',
   );
 
   return $form;

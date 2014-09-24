@@ -25,6 +25,19 @@ function ktopic_ctools_plugin_directory($owner, $plugin_type) {
 // hook_node_*().
 
 /**
+ *  Implements hook_node_info_alter().
+ */
+/*
+function ktopic_node_info_alter(&$items) {
+  $items['ktopic']['base'] = 'ktopic';
+}
+
+function ktopic_node_form($node, $form_state) {
+  return node_content_form($node, $form_state);
+}
+*/
+
+/**
  *  Implements hook_node_insert().
  */
 function ktopic_node_insert($node) {
@@ -51,27 +64,31 @@ function ktopic_kdata_save($ktopic) {
   }
 }
 
+/**
+ * @implements hook_node_load().
+ */
+function ktopic_node_load($nodes, $types) {
+  if (array_search('ktopic', $types) === FALSE) {
+    return;
+  }
+
+  foreach ($nodes as $nid => $node) {
+    $ktypes = KtoolsEntityField::entityreferenceEntities('node', $node, 'field_ktopic_type', TRUE);
+
+    foreach ($ktypes as $tid => $ktype) {
+      $ktypes[$tid] = $ktype->name;
+    }
+    $nodes[$nid]->ktypes = $ktypes;
+  }
+}
+
 // ----------------------------------------------------------------------------
 // Ktopic Utility
 
 /**
- * Return list of ktopic type options.
- */
-function ktopic_type_options() {
-  $vocab = taxonomy_vocabulary_machine_name_load('ktype');
-  $terms = taxonomy_get_tree($vocab->vid);
-  $options = array();
-  foreach ($terms as $term) {
-    $options[$term->tid] = $term->name;
-  }
-
-  return $options;
-}
-
-/**
  * Load ktopic entity, node.
  */
-function ktopic_load($name) {
+function ktopic_load_by_name($name) {
   $conds[] = array(
     'column' => 'machine',
     'value' => $name,
@@ -87,6 +104,24 @@ function ktopic_get_name($ktopic) {
   $lang = $ktopic->language;
 
   return $ktopic->field_ktopic_name[$lang][0]['machine'];
+}
+
+// Check ktopic type.
+// @todo Support both id and name check.
+// function ktopic_is_ktype($types, $mode = NULL) {
+function ktopic_is_ktype($ktopic, $ktype) {
+  if (is_array($ktype)) {
+    if ($ktype == array_intersect($ktype, $ktopic->ktypes)) {
+      return TRUE;
+    }
+  }
+  else {
+    if (array_search($ktype, $ktopic->ktypes) !== FALSE) {
+      return TRUE;
+    }
+  }
+
+  return FALSE;
 }
 
 // Entity id indexed kdata entities.
@@ -142,4 +177,21 @@ function ktopic_get_kdata($ktopic, $kdata_type) {
   }
 
   return NULL;
+}
+
+// ----------------------------------------------------------------------------
+// Ktype Utility
+
+/**
+ * Return list of ktopic type options.
+ */
+function ktype_options() {
+  $vocab = taxonomy_vocabulary_machine_name_load('ktype');
+  $terms = taxonomy_get_tree($vocab->vid);
+  $options = array();
+  foreach ($terms as $term) {
+    $options[$term->tid] = $term->name;
+  }
+
+  return $options;
 }

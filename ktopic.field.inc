@@ -27,10 +27,10 @@ function ktopic_field_settings_form($field, $instance, $has_data) {
   $form['allowed_types'] = array(
     '#type' => 'select',
     '#multiple' => TRUE,
-    '#options' => ktopic_type_options(),
+    '#options' => ktype_options(),
     '#default_value' => $settings['allowed_types'],
     '#title' => t('Allowed Topic Types'),
-    '#size' => count(ktopic_type_options()),
+    '#size' => count(ktype_options()),
   );
 
   return $form;
