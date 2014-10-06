@@ -1,0 +1,10 @@
+.node-ktopic-form .field-name-field-ktopic-type {
+  overflow: auto;
+}
+
+.node-ktopic-form .field-name-field-ktopic-type .form-type-checkbox {
+  /*
+  float: left;
+  margin: 1rem;
+  */
+}

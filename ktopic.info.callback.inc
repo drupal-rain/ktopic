@@ -4,6 +4,9 @@ function ktopic_entity_metadata_kdata_getter_callback($data, array $options, $na
   return ktopic_get_kdata($data, $name);
 }
 
+// Use views_handler_relationship instead of entity_views_handler_relationship and works.
+// Because the data definition in relationship is correct.
+// @see ktopic_views_data_alter().
 class kdata_entity_views_handler_relationship extends views_handler_relationship {
 
 

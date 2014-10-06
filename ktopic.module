@@ -7,9 +7,12 @@
 include_once 'ktopic.features.inc';
 
 include_once 'ktopic.field.inc';
-include_once 'ktopic.ktype.inc';
-
 include_once 'ktopic.info.callback.inc';
+
+include_once 'ktopic.ktype.inc';
+include_once 'ktopic.kdata.inc';
+
+
 
 /**
  * Implements hook_ctools_plugin_directory().
@@ -110,6 +113,10 @@ function ktopic_get_name($ktopic) {
 // @todo Support both id and name check.
 // function ktopic_is_ktype($types, $mode = NULL) {
 function ktopic_is_ktype($ktopic, $ktype) {
+  if ($ktopic->type != 'ktopic') {
+    return FALSE;
+  }
+
   if (is_array($ktype)) {
     if ($ktype == array_intersect($ktype, $ktopic->ktypes)) {
       return TRUE;
@@ -159,8 +166,8 @@ function ktopic_get_kdatas($ktopic, $kdata_type = NULL) {
   return $kdatas;
 }
 
-// Get the specific kdata<TYPE>.
-function ktopic_get_kdata($ktopic, $kdata_type) {
+// Get the specific kdata<TYPE> by using entityreference field_ktopic_data.
+function ktopic_get_kdata($ktopic, $kdata_bundle) {
   $lang = entity_language('node', $ktopic);
   $kdatas = array();
   if ($ktopic->field_ktopic_data && $ktopic->field_ktopic_data[$lang]) {
@@ -170,28 +177,11 @@ function ktopic_get_kdata($ktopic, $kdata_type) {
     // Return the first match.
     // So use UI to sort it up.
     foreach ($kdatas as $kdata) {
-      if ($kdata->type == $kdata_type) {
+      if ($kdata->type == $kdata_bundle) {
         return $kdata;
       }
     }
   }
 
   return NULL;
-}
-
-// ----------------------------------------------------------------------------
-// Ktype Utility
-
-/**
- * Return list of ktopic type options.
- */
-function ktype_options() {
-  $vocab = taxonomy_vocabulary_machine_name_load('ktype');
-  $terms = taxonomy_get_tree($vocab->vid);
-  $options = array();
-  foreach ($terms as $term) {
-    $options[$term->tid] = $term->name;
-  }
-
-  return $options;
 }

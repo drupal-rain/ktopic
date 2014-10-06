@@ -1,5 +1,24 @@
 <?php
 
+// @todo Refactory from ktopic_ktype_*() to ktype_*().
+
+// ----------------------------------------------------------------------------
+// Ktype Utility
+
+/**
+ * Return list of ktopic type options.
+ */
+function ktype_options() {
+  $vocab = taxonomy_vocabulary_machine_name_load('ktype');
+  $terms = taxonomy_get_tree($vocab->vid);
+  $options = array();
+  foreach ($terms as $term) {
+    $options[$term->tid] = $term->name;
+  }
+
+  return $options;
+}
+
 function ktopic_ktype_vocab() {
   return taxonomy_vocabulary_machine_name_load('ktype');
 }

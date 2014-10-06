@@ -1,6 +1,8 @@
 <?php
 
-
+/**
+ * @implements hook_views_data_alter().
+ */
 function ktopic_views_data_alter(&$data) {
 
   $data_tmp = &$data['views_entity_node'];
