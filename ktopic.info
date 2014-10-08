@@ -82,7 +82,5 @@ features[variable][] = pathauto_node_ktopic_pattern
 features[variable][] = pathauto_taxonomy_term_ktype_pattern
 features[views_view][] = ktopic_filter_list
 features[views_view][] = ktopic_index
-features_exclude[dependencies][fxpp] = fxpp
 files[] = entityreference/selection/ktopic.inc
-required = 1
 stylesheets[all][] = css/ktopic.css

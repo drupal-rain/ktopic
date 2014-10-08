@@ -4,8 +4,11 @@
 // @see ktopic_views_data_alter().
 function ktopic_entity_property_info() {
   $info = array();
+  $kdata_bundles = kdata_get_bundles();
+  if (empty($kdata_bundles)) {
+    return $info;
+  }
   $properties = &$info['node']['bundles']['ktopic']['properties'];
-  $kdata_bundles = eck_extras_get_entity_bundles('kdata');
   foreach ($kdata_bundles as $kdata_bundle) {
     $properties[$kdata_bundle] = array(
       'label' => t('kdata<@kdata_type>', array('@kdata_type' => $kdata_bundle)),

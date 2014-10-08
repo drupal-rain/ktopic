@@ -4,11 +4,9 @@
  * @implements hook_views_data_alter().
  */
 function ktopic_views_data_alter(&$data) {
-
   $data_tmp = &$data['views_entity_node'];
-  $kdata_bundles = eck_extras_get_entity_bundles('kdata');
+  $kdata_bundles = kdata_get_bundles();
   foreach ($kdata_bundles as $bundle) {
-    //$data_tmp[$bundle]['relationship']['base'] = 'entity_eck_kdata';
     $data_tmp[$bundle]['relationship']['group'] = t('Ktopic');
     $data_tmp[$bundle]['relationship']['handler'] = 'views_handler_relationship';
     // @tips If need more complex situation, add 'join handler' to it.
@@ -22,16 +20,5 @@ function ktopic_views_data_alter(&$data) {
       'field' => 'type',
       'value' => $bundle,
     );
-    // @deprecated Seems no need.
-    // Add entity_kdata to this table, this make fields data available.
-    //$data_tmp[$bundle] += $data['entity_kdata'];
-    /*
-    $data_tmp[$bundle]['table'] = array(
-      'group' => t('Data'),
-      'entity type' => 'kdata',
-    );
-    */
   }
-
-  //$data['entity_node']['field_ktopic_data']['relationship']['handler'] = 'entity_views_handler_relationship_by_bundles';
 }
