@@ -10,7 +10,7 @@ function ktopic_views_data_alter(&$data) {
   foreach ($kdata_bundles as $bundle) {
     //$data_tmp[$bundle]['relationship']['base'] = 'entity_eck_kdata';
     $data_tmp[$bundle]['relationship']['group'] = t('Ktopic');
-    $data_tmp[$bundle]['relationship']['handler'] = 'kdata_entity_views_handler_relationship';
+    $data_tmp[$bundle]['relationship']['handler'] = 'views_handler_relationship';
     // @tips If need more complex situation, add 'join handler' to it.
     //   Like when multiple kdata attached to the same node and need to figure out
     //   which one is the right data to display.
@@ -35,4 +35,3 @@ function ktopic_views_data_alter(&$data) {
 
   //$data['entity_node']['field_ktopic_data']['relationship']['handler'] = 'entity_views_handler_relationship_by_bundles';
 }
-
