@@ -202,7 +202,7 @@ function ktopic_panelizer_defaults() {
     $pane->pid = 'new-38652cac-7143-4f3c-bb3e-4be448b120fc';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_ktopic_type';
+    $pane->subtype = 'node:ktype';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(

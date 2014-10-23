@@ -8,6 +8,7 @@ Components
 Theme
 =====
 * Add page__node__ktopic, page__node__ksubject to 'theme_hook_suggestions' for corresponding node type.
+* ktopic_logos
 
 node<ktopic>
 ============

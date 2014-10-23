@@ -1,7 +1,7 @@
 <?php
 
 define('KTOPIC_FIELD_NAME', 'field_ktopic_name');
-define('KTOPIC_FIELD_TYPE', 'field_ktopic_type');
+define('KTOPIC_FIELD_TYPE', 'ktype');
 
 /**
  * @implements hook_field_info().
@@ -169,7 +169,7 @@ function ktopic_options_list($field, $instance, $entity_type, $entity) {
       'operator' => 'IN',
     );
   }
-  $node_ids = KtoolsEntityField::queryEntities('field_ktopic_type', $conds, 'node');
+  $node_ids = KtoolsEntityField::queryEntities('ktype', $conds, 'node');
   $nodes = node_load_multiple($node_ids);
   $options_list = array();
   foreach ($nodes as $node) {

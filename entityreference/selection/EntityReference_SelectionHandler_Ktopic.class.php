@@ -62,7 +62,7 @@ class EntityReference_SelectionHandler_Ktopic implements EntityReference_Selecti
         'operator' => 'IN',
       );
     }
-    $node_ids = KtoolsEntityField::queryEntities('field_ktopic_type', $conds, 'node');
+    $node_ids = KtoolsEntityField::queryEntities('ktype', $conds, 'node');
     $nodes = node_load_multiple($node_ids);
 
     return $nodes;

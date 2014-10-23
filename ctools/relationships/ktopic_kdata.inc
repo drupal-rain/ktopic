@@ -22,6 +22,7 @@ function ktopic_ktopic_kdata_context($context, $conf) {
   }
 
   $ktopic_wrapper = entity_metadata_wrapper('node', $ktopic);
+  // @see ktopic_entity_property_info().
   $kdata = $ktopic_wrapper->{$conf['bundle']}->value();
   if (!empty($kdata)) {
     return ctools_context_create('entity:kdata', $kdata);

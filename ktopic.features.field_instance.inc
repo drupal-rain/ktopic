@@ -374,8 +374,8 @@ function ktopic_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ktopic-field_ktopic_type'
-  $field_instances['node-ktopic-field_ktopic_type'] = array(
+  // Exported field_instance: 'node-ktopic-ktype'
+  $field_instances['node-ktopic-ktype'] = array(
     'bundle' => 'ktopic',
     'default_value' => NULL,
     'deleted' => 0,
@@ -398,7 +398,7 @@ function ktopic_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_ktopic_type',
+    'field_name' => 'ktype',
     'label' => 'Type',
     'required' => 0,
     'settings' => array(

@@ -77,7 +77,7 @@ function ktopic_node_load($nodes, $types) {
   }
 
   foreach ($nodes as $nid => $node) {
-    $ktypes = KtoolsEntityField::entityreferenceEntities('node', $node, 'field_ktopic_type', TRUE);
+    $ktypes = KtoolsEntityField::entityreferenceEntities('node', $node, 'ktype', TRUE);
 
     foreach ($ktypes as $tid => $ktype) {
       $ktypes[$tid] = $ktype->name;
@@ -107,11 +107,12 @@ function ktopic_load_by_name($name) {
 function ktopic_get_name($ktopic) {
   $lang = $ktopic->language;
 
-  return $ktopic->field_ktopic_name[$lang][0]['machine'];
+  return $ktopic->ktopic_name[$lang][0]['machine'];
 }
 
 // Check ktopic type.
 // @todo Support both id and name check.
+// @see ktopic_node_load().
 // function ktopic_is_ktype($types, $mode = NULL) {
 function ktopic_is_ktype($ktopic, $ktype) {
   if ($ktopic->type != 'ktopic') {
@@ -136,9 +137,9 @@ function ktopic_is_ktype($ktopic, $ktype) {
 function ktopic_get_kdatas_flat($ktopic) {
   $lang = entity_language('node', $ktopic);
   $kdatas = array();
-  if ($ktopic->field_ktopic_data && $ktopic->field_ktopic_data[$lang]) {
+  if ($ktopic->kdata && $ktopic->kdata[$lang]) {
     $kdatas_id = array();
-    foreach ($ktopic->field_ktopic_data[$lang] as $value) {
+    foreach ($ktopic->kdata[$lang] as $value) {
       $kdata_id = $value['target_id'];
       $kdatas_id[] = $kdata_id;
     }
@@ -152,8 +153,8 @@ function ktopic_get_kdatas_flat($ktopic) {
 function ktopic_get_kdatas($ktopic, $kdata_type = NULL) {
   $lang = entity_language('node', $ktopic);
   $kdatas = array();
-  if ($ktopic->field_ktopic_data && $ktopic->field_ktopic_data[$lang]) {
-    foreach ($ktopic->field_ktopic_data[$lang] as $value) {
+  if ($ktopic->kdata && $ktopic->kdata[$lang]) {
+    foreach ($ktopic->kdata[$lang] as $value) {
       $kdata_id = $value['target_id'];
       $kdata = entity_load_single('kdata', $kdata_id);
       $kdatas[$kdata->type] = $kdata;
@@ -171,8 +172,8 @@ function ktopic_get_kdatas($ktopic, $kdata_type = NULL) {
 function ktopic_get_kdata($ktopic, $kdata_bundle) {
   $lang = entity_language('node', $ktopic);
   $kdatas = array();
-  if ($ktopic->field_ktopic_data && $ktopic->field_ktopic_data[$lang]) {
-    foreach ($ktopic->field_ktopic_data[$lang] as $delta => $value) {
+  if ($ktopic->kdata && $ktopic->kdata[$lang]) {
+    foreach ($ktopic->kdata[$lang] as $delta => $value) {
       $kdatas[$delta] = entity_load_single('kdata', $value['target_id']);
     }
     // Return the first match.

@@ -54,7 +54,7 @@ function ktopic_field_group_info() {
     'weight' => '3',
     'children' => array(
       0 => 'field_ktopic_data',
-      1 => 'field_ktopic_type',
+      1 => 'ktype',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

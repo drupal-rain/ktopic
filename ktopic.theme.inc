@@ -28,13 +28,13 @@ function template_preprocess_ktopic_logos(&$vars) {
     $image = 0;
     switch ($settings['type']) {
       case 'square':
-        $image = $entity_wrapper->field_logo_square->value();
+        $image = $entity_wrapper->logo_square->value();
         break;
       case 'portrait':
-        $image = $entity_wrapper->field_logo_portrait->value();
+        $image = $entity_wrapper->logo_portrait->value();
         break;
       case 'landscape':
-        $image = $entity_wrapper->field_logo_landscape->value();
+        $image = $entity_wrapper->logo_landscape->value();
         break;
     }
     if ($image) {
