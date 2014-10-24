@@ -37,13 +37,13 @@ function ktopic_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_ktopic_data'
-  $field_bases['field_ktopic_data'] = array(
+  // Exported field_base: 'kdata'
+  $field_bases['kdata'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_ktopic_data',
+    'field_name' => 'kdata',
     'foreign keys' => array(
       'eck_kdata' => array(
         'columns' => array(
@@ -78,13 +78,13 @@ function ktopic_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_ktopic_name'
-  $field_bases['field_ktopic_name'] = array(
+  // Exported field_base: 'ktopic_name'
+  $field_bases['ktopic_name'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_ktopic_name',
+    'field_name' => 'ktopic_name',
     'foreign keys' => array(),
     'indexes' => array(
       'machine' => array(
@@ -95,6 +95,7 @@ function ktopic_field_default_field_bases() {
     'module' => 'safeword',
     'settings' => array(
       'allow_machine_changes' => 1,
+      'complete_path_label' => 'Complete path',
       'machine_description' => 'A URL-safe version of the text. It may only contain lowercase letters, numbers and underscores. Leave blank to re-generate.',
       'machine_label' => 'URL-safe',
       'max_length' => 255,
@@ -107,13 +108,13 @@ function ktopic_field_default_field_bases() {
     'type' => 'safeword_title',
   );
 
-  // Exported field_base: 'field_ktopic_tags'
-  $field_bases['field_ktopic_tags'] = array(
+  // Exported field_base: 'ktopic_tags'
+  $field_bases['ktopic_tags'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_ktopic_tags',
+    'field_name' => 'ktopic_tags',
     'foreign keys' => array(
       'node' => array(
         'columns' => array(
@@ -133,9 +134,6 @@ function ktopic_field_default_field_bases() {
       'handler' => 'base',
       'handler_settings' => array(
         'behaviors' => array(
-          'treefield_sql' => array(
-            'status' => 0,
-          ),
           'views-select-list' => array(
             'status' => 0,
           ),
@@ -179,9 +177,6 @@ function ktopic_field_default_field_bases() {
       'handler' => 'base',
       'handler_settings' => array(
         'behaviors' => array(
-          'treefield_sql' => array(
-            'status' => 0,
-          ),
           'views-select-list' => array(
             'status' => 1,
           ),

@@ -24,6 +24,9 @@ function ktopic_strongarm() {
         'path' => array(
           'weight' => '5',
         ),
+        'redirect' => array(
+          'weight' => '6',
+        ),
       ),
       'display' => array(),
     ),
@@ -42,7 +45,10 @@ function ktopic_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '6',
+        ),
+        'redirect' => array(
+          'weight' => '7',
         ),
       ),
       'display' => array(),
@@ -148,6 +154,12 @@ function ktopic_strongarm() {
         'default display' => 0,
         'choice' => 0,
       ),
+      'featured' => array(
+        'status' => 0,
+        'default' => 0,
+        'default display' => 0,
+        'choice' => 0,
+      ),
     ),
   );
   $export['panelizer_defaults_node_ktopic'] = $strongarm;
@@ -235,7 +247,7 @@ function ktopic_strongarm() {
     'entity_field-node:field_ktopic_data' => 'entity_field-node:field_ktopic_data',
     'entity_field-node:field_logo_square' => 'entity_field-node:field_logo_square',
     'entity_field-node:field_logo_rectangle' => 'entity_field-node:field_logo_rectangle',
-    'entity_field-node:ktype' => 'entity_field-node:ktype',
+    'entity_field-node:field_ktopic_type' => 'entity_field-node:field_ktopic_type',
     'entity_field-og_membership:og_membership_request' => 'entity_field-og_membership:og_membership_request',
     'entity_field-file:field_file_image_alt_text' => 'entity_field-file:field_file_image_alt_text',
     'entity_field-file:field_file_image_title_text' => 'entity_field-file:field_file_image_title_text',
@@ -348,7 +360,7 @@ function ktopic_strongarm() {
     'token-node:field_logo_square' => 'token-node:field_logo_square',
     'token-node:field_logo_rectangle' => 'token-node:field_logo_rectangle',
     'token-node:field_ktopic_data' => 'token-node:field_ktopic_data',
-    'token-node:ktype' => 'token-node:ktype',
+    'token-node:field_ktopic_type' => 'token-node:field_ktopic_type',
     'token-node:field_test_broker' => 'token-node:field_test_broker',
     'token-node:field_test_broker2' => 'token-node:field_test_broker2',
     'token-node:field_test_payment' => 'token-node:field_test_payment',
@@ -799,7 +811,7 @@ function ktopic_strongarm() {
     'entity_form_field-node:field_ktopic_data' => 'entity_form_field-node:field_ktopic_data',
     'entity_form_field-node:field_logo_square' => 'entity_form_field-node:field_logo_square',
     'entity_form_field-node:field_logo_rectangle' => 'entity_form_field-node:field_logo_rectangle',
-    'entity_form_field-node:ktype' => 'entity_form_field-node:ktype',
+    'entity_form_field-node:field_ktopic_type' => 'entity_form_field-node:field_ktopic_type',
     'entity_form_field-og_membership:og_membership_request' => 'entity_form_field-og_membership:og_membership_request',
     'entity_form_field-file:field_file_image_alt_text' => 'entity_form_field-file:field_file_image_alt_text',
     'entity_form_field-file:field_file_image_title_text' => 'entity_form_field-file:field_file_image_title_text',
@@ -913,7 +925,7 @@ function ktopic_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_ktopic_pattern';
-  $strongarm->value = '[node:field_ktopic_name]';
+  $strongarm->value = '[node:ktopic_name]';
   $export['pathauto_node_ktopic_pattern'] = $strongarm;
 
   $strongarm = new stdClass();

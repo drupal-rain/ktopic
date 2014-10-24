@@ -15,7 +15,7 @@ function ktopic_taxonomy_default_vocabularies() {
       'description' => 'Topic types category.',
       'hierarchy' => 1,
       'module' => 'taxonomy',
-      'weight' => 0,
+      'weight' => -9,
     ),
   );
 }

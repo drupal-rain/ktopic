@@ -21,12 +21,11 @@ function ktopic_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Logo',
-    'weight' => '4',
+    'weight' => '5',
     'children' => array(
-      0 => 'field_logo_square',
-      1 => 'field_logo_rectangle',
-      2 => 'field_logo_portrait',
-      3 => 'field_logo_landscape',
+      0 => 'logo_square',
+      1 => 'logo_landscape',
+      2 => 'logo_portrait',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -53,7 +52,7 @@ function ktopic_field_group_info() {
     'label' => 'Topic',
     'weight' => '3',
     'children' => array(
-      0 => 'field_ktopic_data',
+      0 => 'kdata',
       1 => 'ktype',
     ),
     'format_type' => 'fieldset',
