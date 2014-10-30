@@ -30,17 +30,22 @@ function ktopic_panelizer_defaults() {
   $panelizer->link_to_entity = TRUE;
   $panelizer->extra = array();
   $display = new panels_display();
-  $display->layout = 'flexible';
+  $display->layout = 'chaos';
   $display->layout_settings = array();
-  $display->panel_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'row' => NULL,
+    ),
+  );
   $display->cache = array();
   $display->title = '%node:title';
-  $display->uuid = 'fbae0879-faa5-48f0-a214-76d19fb9083a';
+  $display->uuid = '734628a7-6608-42bf-a2e7-d67ce9e46045';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-2145b90e-d3ed-49c8-b972-bf95a5dbc576';
-    $pane->panel = 'center';
+    $pane->pid = 'new-45b82e6e-01b1-45b4-ba07-0a8cd7bb1f61';
+    $pane->panel = 'row';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:body';
     $pane->shown = TRUE;
@@ -55,17 +60,19 @@ function ktopic_panelizer_defaults() {
       'context' => 'panelizer',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '2145b90e-d3ed-49c8-b972-bf95a5dbc576';
-    $display->content['new-2145b90e-d3ed-49c8-b972-bf95a5dbc576'] = $pane;
-    $display->panels['center'][0] = 'new-2145b90e-d3ed-49c8-b972-bf95a5dbc576';
+    $pane->uuid = '45b82e6e-01b1-45b4-ba07-0a8cd7bb1f61';
+    $display->content['new-45b82e6e-01b1-45b4-ba07-0a8cd7bb1f61'] = $pane;
+    $display->panels['row'][0] = 'new-45b82e6e-01b1-45b4-ba07-0a8cd7bb1f61';
     $pane = new stdClass();
-    $pane->pid = 'new-3494a50f-8b94-4d52-b1fa-73ad31f1ada6';
-    $pane->panel = 'center';
+    $pane->pid = 'new-ee7926ba-3968-479a-8d88-1c27af7c78a7';
+    $pane->panel = 'row';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:group_group';
     $pane->shown = TRUE;
@@ -82,44 +89,21 @@ function ktopic_panelizer_defaults() {
       'context' => 'panelizer',
     );
     $pane->cache = array();
-    $pane->style = array();
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '3494a50f-8b94-4d52-b1fa-73ad31f1ada6';
-    $display->content['new-3494a50f-8b94-4d52-b1fa-73ad31f1ada6'] = $pane;
-    $display->panels['center'][1] = 'new-3494a50f-8b94-4d52-b1fa-73ad31f1ada6';
-    $pane = new stdClass();
-    $pane->pid = 'new-a24482d1-c1cc-4a3e-b040-d39826d46e88';
-    $pane->panel = 'center';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_ktopic_name';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'above',
-      'formatter' => 'safeword_machine_basic',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
-      'context' => 'panelizer',
+    $pane->style = array(
+      'settings' => NULL,
     );
-    $pane->cache = array();
-    $pane->style = array();
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = 'a24482d1-c1cc-4a3e-b040-d39826d46e88';
-    $display->content['new-a24482d1-c1cc-4a3e-b040-d39826d46e88'] = $pane;
-    $display->panels['center'][2] = 'new-a24482d1-c1cc-4a3e-b040-d39826d46e88';
+    $pane->uuid = 'ee7926ba-3968-479a-8d88-1c27af7c78a7';
+    $display->content['new-ee7926ba-3968-479a-8d88-1c27af7c78a7'] = $pane;
+    $display->panels['row'][1] = 'new-ee7926ba-3968-479a-8d88-1c27af7c78a7';
     $pane = new stdClass();
-    $pane->pid = 'new-90ce284a-5be8-4183-ab62-3029b657ce8d';
-    $pane->panel = 'center';
+    $pane->pid = 'new-3245be79-0780-4d03-b9d7-f7abf5d4c6de';
+    $pane->panel = 'row';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_logo_square';
+    $pane->subtype = 'node:logo_square';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -135,19 +119,21 @@ function ktopic_panelizer_defaults() {
       'context' => 'panelizer',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = '90ce284a-5be8-4183-ab62-3029b657ce8d';
-    $display->content['new-90ce284a-5be8-4183-ab62-3029b657ce8d'] = $pane;
-    $display->panels['center'][3] = 'new-90ce284a-5be8-4183-ab62-3029b657ce8d';
+    $pane->uuid = '3245be79-0780-4d03-b9d7-f7abf5d4c6de';
+    $display->content['new-3245be79-0780-4d03-b9d7-f7abf5d4c6de'] = $pane;
+    $display->panels['row'][2] = 'new-3245be79-0780-4d03-b9d7-f7abf5d4c6de';
     $pane = new stdClass();
-    $pane->pid = 'new-bf2a6bdf-70c5-4978-84df-d23fff3884ab';
-    $pane->panel = 'center';
+    $pane->pid = 'new-a5d7cbe0-6253-4e12-bc21-288db80214f1';
+    $pane->panel = 'row';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_logo_rectangle';
+    $pane->subtype = 'node:logo_landscape';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -163,19 +149,51 @@ function ktopic_panelizer_defaults() {
       'context' => 'panelizer',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 3;
     $pane->locks = array();
-    $pane->uuid = 'bf2a6bdf-70c5-4978-84df-d23fff3884ab';
-    $display->content['new-bf2a6bdf-70c5-4978-84df-d23fff3884ab'] = $pane;
-    $display->panels['center'][4] = 'new-bf2a6bdf-70c5-4978-84df-d23fff3884ab';
+    $pane->uuid = 'a5d7cbe0-6253-4e12-bc21-288db80214f1';
+    $display->content['new-a5d7cbe0-6253-4e12-bc21-288db80214f1'] = $pane;
+    $display->panels['row'][3] = 'new-a5d7cbe0-6253-4e12-bc21-288db80214f1';
     $pane = new stdClass();
-    $pane->pid = 'new-0212efe5-602f-4103-837f-e4e55c0aafc9';
-    $pane->panel = 'center';
+    $pane->pid = 'new-65aa891b-4081-48e2-9fd6-335c92202f45';
+    $pane->panel = 'row';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_ktopic_data';
+    $pane->subtype = 'node:logo_portrait';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'above',
+      'formatter' => 'image',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(
+        'image_link' => '',
+        'image_style' => '',
+      ),
+      'context' => 'panelizer',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '65aa891b-4081-48e2-9fd6-335c92202f45';
+    $display->content['new-65aa891b-4081-48e2-9fd6-335c92202f45'] = $pane;
+    $display->panels['row'][4] = 'new-65aa891b-4081-48e2-9fd6-335c92202f45';
+    $pane = new stdClass();
+    $pane->pid = 'new-6900e28d-53a1-4098-9f8f-712a7442bbd2';
+    $pane->panel = 'row';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:kdata';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -190,17 +208,19 @@ function ktopic_panelizer_defaults() {
       'context' => 'panelizer',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 5;
     $pane->locks = array();
-    $pane->uuid = '0212efe5-602f-4103-837f-e4e55c0aafc9';
-    $display->content['new-0212efe5-602f-4103-837f-e4e55c0aafc9'] = $pane;
-    $display->panels['center'][5] = 'new-0212efe5-602f-4103-837f-e4e55c0aafc9';
+    $pane->uuid = '6900e28d-53a1-4098-9f8f-712a7442bbd2';
+    $display->content['new-6900e28d-53a1-4098-9f8f-712a7442bbd2'] = $pane;
+    $display->panels['row'][5] = 'new-6900e28d-53a1-4098-9f8f-712a7442bbd2';
     $pane = new stdClass();
-    $pane->pid = 'new-38652cac-7143-4f3c-bb3e-4be448b120fc';
-    $pane->panel = 'center';
+    $pane->pid = 'new-65a52d4b-209a-4cd2-aaeb-123d94e71a70';
+    $pane->panel = 'row';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:ktype';
     $pane->shown = TRUE;
@@ -217,17 +237,46 @@ function ktopic_panelizer_defaults() {
       'context' => 'panelizer',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 6;
     $pane->locks = array();
-    $pane->uuid = '38652cac-7143-4f3c-bb3e-4be448b120fc';
-    $display->content['new-38652cac-7143-4f3c-bb3e-4be448b120fc'] = $pane;
-    $display->panels['center'][6] = 'new-38652cac-7143-4f3c-bb3e-4be448b120fc';
+    $pane->uuid = '65a52d4b-209a-4cd2-aaeb-123d94e71a70';
+    $display->content['new-65a52d4b-209a-4cd2-aaeb-123d94e71a70'] = $pane;
+    $display->panels['row'][6] = 'new-65a52d4b-209a-4cd2-aaeb-123d94e71a70';
     $pane = new stdClass();
-    $pane->pid = 'new-42c26744-cf0d-4332-8bc8-dd97e80e2efd';
-    $pane->panel = 'center';
+    $pane->pid = 'new-bdd73328-8c4d-4368-b5d4-475739a7fcc0';
+    $pane->panel = 'row';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:ktopic_name';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'above',
+      'formatter' => 'safeword_machine_basic',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'panelizer',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 7;
+    $pane->locks = array();
+    $pane->uuid = 'bdd73328-8c4d-4368-b5d4-475739a7fcc0';
+    $display->content['new-bdd73328-8c4d-4368-b5d4-475739a7fcc0'] = $pane;
+    $display->panels['row'][7] = 'new-bdd73328-8c4d-4368-b5d4-475739a7fcc0';
+    $pane = new stdClass();
+    $pane->pid = 'new-13dc73f0-6eb9-48ab-94ed-57cd05d720c0';
+    $pane->panel = 'row';
     $pane->type = 'node_links';
     $pane->subtype = 'node_links';
     $pane->shown = TRUE;
@@ -241,18 +290,20 @@ function ktopic_panelizer_defaults() {
       'context' => 'panelizer',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array(
       'css_class' => 'link-wrapper',
     );
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 8;
     $pane->locks = array();
-    $pane->uuid = '42c26744-cf0d-4332-8bc8-dd97e80e2efd';
-    $display->content['new-42c26744-cf0d-4332-8bc8-dd97e80e2efd'] = $pane;
-    $display->panels['center'][7] = 'new-42c26744-cf0d-4332-8bc8-dd97e80e2efd';
+    $pane->uuid = '13dc73f0-6eb9-48ab-94ed-57cd05d720c0';
+    $display->content['new-13dc73f0-6eb9-48ab-94ed-57cd05d720c0'] = $pane;
+    $display->panels['row'][8] = 'new-13dc73f0-6eb9-48ab-94ed-57cd05d720c0';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-42c26744-cf0d-4332-8bc8-dd97e80e2efd';
+  $display->title_pane = 'new-45b82e6e-01b1-45b4-ba07-0a8cd7bb1f61';
   $panelizer->display = $display;
   $export['node:ktopic:default:default'] = $panelizer;
 
